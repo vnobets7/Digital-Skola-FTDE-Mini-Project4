@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  database:
+    container_name: postgres-db
+    image: 'postgres:latest'
+    restart: always
+    ports:
+      - "6543:5432"
+    environment:
+      POSTGRES_USER: ftde02
+      POSTGRES_PASSWORD: ftde02!@#
+      POSTGRES_DB: stream_processing
+    volumes:
+     - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
+    driver: local
